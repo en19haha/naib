@@ -15,15 +15,15 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			redirect: '/login',
+			// redirect: '/',
 		},
 		{
 			path: '/login',
 			name: 'login',
 			component: LoginView,
-			beforeEnter(to, from, next) {
-				store.getters['isLoggedIn'] ? next('/main') : next();
-			},
+			// beforeEnter(to, from, next) {
+			// 	store.getters['isLoggedIn'] ? next('/main') : next();
+			// },
 		},
 		{
 			path: '/signup',
@@ -34,23 +34,24 @@ export default new Router({
 			path: '/main',
 			name: 'main',
 			component: MainView,
-			beforeEnter,
+			// beforeEnter,
 		},
 		{
 			path: '/new',
 			name: 'new',
 			component: PostAddView,
-			beforeEnter,
+			// beforeEnter,
 		},
 		{
 			path: '/post/:id',
 			name: 'detail',
 			component: PostDetailView,
-			beforeEnter,
+			// beforeEnter,
 		},
 	],
 });
 
+/*
 function beforeEnter(to, from, next) {
 	if (store.getters['isLoggedIn'] || getUserFromCookie()) {
 		next();
@@ -59,3 +60,4 @@ function beforeEnter(to, from, next) {
 		next('/login');
 	}
 }
+*/

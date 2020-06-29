@@ -10,6 +10,7 @@ import chalk from 'chalk';
 // api
 import auth from './api/auth.js';
 import posts from './api/posts.js';
+import comments from './api/comments.js';
 import docs from './utils/api-doc.js';
 
 // utils
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // express routers
 app.use('/', auth);
 app.use('/posts', authenticateUser, posts);
+app.use('/comments', comments);
 
 // start
 app.listen(port, () => console.log('Server started at port 8001'));

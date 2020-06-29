@@ -4,6 +4,9 @@ import { posts } from './index';
 function createNewPost(data) {
 	return posts.post('/', data);
 }
+function createNewComments(data) {
+	return posts.post('/', data);
+}
 
 function fetchPosts() {
 	return posts.get('/');
