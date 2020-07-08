@@ -29,7 +29,7 @@ export default {
       showModal: false,
       slideData: [
         {
-          title: "염주성",
+          title: "지은유55",
           img: "/images/test.jpg",
         },
         {
