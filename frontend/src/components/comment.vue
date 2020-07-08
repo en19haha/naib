@@ -29,6 +29,7 @@ export default {
     return {
       title: "",
       contents: "",
+      cmtKey: new Date(),
       resultMessage: "",
       postItems: null,
     };
@@ -54,12 +55,13 @@ export default {
         const response = await createNewPost({
           title: this.title,
           contents: this.contents,
+          cmtKey: this.cmtKey,
         });
         bus.$emit("show:toast", `${response.data.data.title} was created`);
         //this.$router.push("/");
         this.fetchData();
       } catch (error) {
-        console.log(error);
+        console.log(error.data.error.errmsg);
         this.resultMessage = error.data.message;
       }
     },
