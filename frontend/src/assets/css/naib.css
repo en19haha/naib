@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.wrap{
+  padding:100px 50px;
+}
+.nav-list{display:flex; justify-content:center}
+.nav-list li{margin:0 20px;}
+
+.thum-list{
+  display:flex;
+  flex-wrap:wrap;
+}
+.thum-list li{margin:0 10px;}

@@ -18,7 +18,7 @@
                     v-for="(slide, index) in slideData"
                     :key="index"
                   >
-                    {{ slide.title }}
+                    <img :src="slide.img">
                   </div>
                 </div>
 
