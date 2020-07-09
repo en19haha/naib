@@ -1,14 +1,17 @@
 <template>
-	<div>
+	<div class="section">
+		<h1>글 요기 안에서 디자인 자유롭게<br>높이 값은 상관없음</h1>
 		<ul class="link-list">
 			<li>
-				<button type="button" v-on:click="pageName = 'view01'">white01</button>
+				<button type="button" v-on:click="pageName = 'view01'">글 1</button>
 			</li>
 			<li>
-				<button type="button" v-on:click="pageName = 'view02'">white02</button>
+				<button type="button" v-on:click="pageName = 'view02'">글 2</button>
 			</li>
 		</ul>
-		<component v-bind:is="pageName"/>
+		<div class="cont">
+			<component v-bind:is="pageName"/>
+		</div>
 	</div>
 </template>
 <script>

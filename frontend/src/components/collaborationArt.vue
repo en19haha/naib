@@ -1,6 +1,7 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
-  <div>
+  <div class="section">
+    <h1>합작 그림페이지 요기 안에서 디자인 자유롭게<br>높이 값은 상관없음<br> 썸네일 크기 상관없음 </h1>
     <ul class="thum-list">
       <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
         <div class="thum">
@@ -32,15 +33,15 @@ export default {
       slideData: [
         {
           title: "지은유55",
-          img: "http://placehold.it/600x900",
+          img: "http://placehold.it/1200x1200",
         },
         {
           title: "지은유",
-          img: "http://placehold.it/400x200",
+          img: "http://placehold.it/800x400",
         },
         {
           title: "지은유1",
-          img: "http://placehold.it/400x200",
+          img: "http://placehold.it/1900x1900",
         },
         {
           title: "지은유2",

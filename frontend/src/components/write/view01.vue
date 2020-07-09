@@ -1,6 +1,6 @@
 <template>
 <div>
-	1
+	글내용이 들어갑니다 와아아앙아ㅏ아아아아앙
 </div>
 </template>
 <script>
