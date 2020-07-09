@@ -33,15 +33,15 @@ export default {
       slideData: [
         {
           title: "지은유55",
-          img: "http://placehold.it/1900x2000",
+          img: "http://placehold.it/1200x1200",
         },
         {
           title: "지은유",
-          img: "http://placehold.it/400x200",
+          img: "http://placehold.it/800x400",
         },
         {
           title: "지은유1",
-          img: "http://placehold.it/400x200",
+          img: "http://placehold.it/1900x1900",
         },
         {
           title: "지은유2",

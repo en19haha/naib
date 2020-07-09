@@ -57,6 +57,7 @@
 .thum-list li .thum{position:relative; padding-top:100%;}
 .thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
 .modal-container{min-width:1240px; width:100vw !important; height:100vh !important; box-sizing:border-box; overflow:auto !important;}
+.modal-container .swiper-slide{text-align:center;}
 .modal-container .swiper-slide img{max-width:100%;}
 
 .link-list{display:flex; justify-content:center;}
