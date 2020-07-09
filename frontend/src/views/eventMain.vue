@@ -1,7 +1,5 @@
 <template>
-  <div class="wrap">
-    <MainPage></MainPage>
-  </div>
+  <MainPage></MainPage>
 </template>
 
 <script>
