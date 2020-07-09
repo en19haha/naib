@@ -2,7 +2,7 @@
 
 .wrap{
   box-sizing:border-box;
-  height:100%;
+  min-height:100vh;
   padding:100px 0;
   background:url('../images/bg.png') repeat;
 }
@@ -19,7 +19,7 @@
   position:relative;
   width:1240px;
   margin:0 auto;
-  height:100%;
+  height:calc(100vh - 200px);
   background:#fff;
 }
 
@@ -56,7 +56,7 @@
 .thum-list li{width:250px; height:250px; overflow:hidden; background:red; margin-bottom:20px;}
 .thum-list li .thum{position:relative; padding-top:100%;}
 .thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
-.modal-container{min-width:1240px; width:100vw !important; height:100vh !important; box-sizing:border-box; overflow:auto !important;}
+.modal-container{min-width:1240px; width:calc(100vw - 50px) !important; height:calc(100vh - 50px) !important; box-sizing:border-box; overflow:auto !important;}
 .modal-container .swiper-slide{text-align:center;}
 .modal-container .swiper-slide img{max-width:100%;}
 

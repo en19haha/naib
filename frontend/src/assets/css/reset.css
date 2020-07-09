@@ -1,6 +1,5 @@
 html,
 body {
-	height: 100%;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -9,7 +8,6 @@ body {
 	vertical-align: baseline;
 	font-family: 'Spoqa Han Sans', 'Sans-serif';
 }
-
 h1,
 p,
 ul {
