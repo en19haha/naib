@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
 .wrap{
+  box-sizing:border-box;
+  height:100%;
   padding:100px 50px;
+  background:url('../images/bg.png') repeat;
 }
 .nav-list{display:flex; justify-content:center}
 .nav-list li{margin:0 20px;}
@@ -11,3 +14,16 @@
   flex-wrap:wrap;
 }
 .thum-list li{margin:0 10px;}
+
+.section{
+  position:relative;
+  max-width:1874px;
+  min-width:1024px;
+  margin:0 auto;
+  height:100%;
+
+}
+.section .inner{
+  height:calc(100% - 187px);
+  background:url('../images/bg-white.png') repeat  0 / contain;
+}
