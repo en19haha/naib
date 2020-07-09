@@ -3,7 +3,7 @@
 .wrap{
   box-sizing:border-box;
   height:100%;
-  padding:100px 50px;
+  padding:100px 0;
   background:url('../images/bg.png') repeat;
 }
 .nav-list{display:flex; justify-content:center}
@@ -17,13 +17,48 @@
 
 .section{
   position:relative;
-  max-width:1874px;
-  min-width:1024px;
+  width:1240px;
   margin:0 auto;
   height:100%;
+  background:#fff;
+}
 
+.guide-box{
+  display:flex;
+  height:100%;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  flex-wrap:wrap;
 }
-.section .inner{
-  height:calc(100% - 187px);
-  background:url('../images/bg-white.png') repeat  0 / contain;
+
+.comment-list{text-align:center;}
+.comment-list li{
+  font-size:14px;
 }
+
+.comment-list li span{
+  font-size:12px;
+}
+
+.comment label{display:flex; padding:0 50px;}
+.comment label span{display:block; width:200px;  font-size:14px; font-weight:bold; white-space:nowrap;}
+.comment label  input{width:600px;}
+.comment button{display:block; width:200px; margin:0 auto;}
+
+.col-list{display:flex; width:100%; justify-content:center;}
+.col-list li{border:1px solid red; padding:10px;}
+.col-list li + li{margin-left:20px;}
+
+.thum-list{display:flex; flex-wrap:wrap; }
+
+.thum-list li{width:250px; height:250px; overflow:hidden; background:red; margin-bottom:20px;}
+.thum-list li .thum{position:relative; padding-top:100%;}
+.thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
+.modal-container{min-width:1240px; width:100vw !important; height:100vh !important; box-sizing:border-box; overflow:auto !important;}
+.modal-container .swiper-slide img{max-width:100%;}
+
+.link-list{display:flex; justify-content:center;}
+.link-list li + li{margin-left:20px;}
+.cont{text-align:center; padding:100px;}

@@ -1,22 +1,25 @@
 <template>
-  <div>
-    <ul v-if="postItems">
+  <div class="section">
+    <h1>이 안에서 자유롭게 하십시오 컨텐츠는 하단에 있는 애들이 들어갑니다.</h1>
+    <ul v-if="postItems" class="comment-list">
       <li v-for="(item, index) in postItems" :key="index">
-        id : {{ item.title }} <br />
-        멘트 :{{ item.contents }}
+<!--        <div><span>id :</span> {{ item.title }}</div>-->
+        <div> <span>축하 멘트 :</span>{{ item.contents }}</div>
       </li>
     </ul>
-    <form @submit.prevent="submitForm" class="form">
-      <label>
-        id:
-        <input type="text" v-model="title" />
-      </label>
-      <label>
-        축하멘트:
-        <input type="text" v-model="contents" />
-      </label>
-      <button type="submit">입력</button>
-    </form>
+    <div class="comment">
+      <form @submit.prevent="submitForm" class="form">
+        <label>
+          <span>트위터 아이디</span>
+          <input type="text" v-model="title" />
+        </label>
+        <label>
+          <span>축하멘트</span>
+          <input type="text" v-model="contents" />
+        </label>
+        <button type="submit">입력</button>
+      </form>
+    </div>
   </div>
 </template>
 <script>
