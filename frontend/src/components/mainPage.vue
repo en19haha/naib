@@ -6,8 +6,8 @@
 		  </h1>
 		  <ul class="nav-list">
 			  <li class="decotter"><router-link to="/icondeco"><span>decotter</span></router-link></li>
-			  <li class="message"><router-link to="/message"><span>message</span></router-link></li>
-			  <li class="collaboration"><router-link to="/collaboration"><span>collaboration</span></router-link></li>
+			  <li class="coming"><router-link to="/message"><span>message</span></router-link></li>
+			  <li class="coming"><router-link to="/collaboration"><span>collaboration</span></router-link></li>
 		  </ul>
 		  <hr class="green-hr">
 		  <p class="main-desc">

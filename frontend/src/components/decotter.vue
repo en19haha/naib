@@ -16,7 +16,7 @@
 			</p>
 			<hr class="green-hr">
 			<div class="decotter-img">
-				<img src="../assets/images/decotter.jpg" alt="">
+				<img src="../assets/images/decotter.png" alt="">
 			</div>
 		</div>
 	</div>
