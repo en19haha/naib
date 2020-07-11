@@ -2,26 +2,58 @@
 
 .wrap{
   box-sizing:border-box;
+	min-width:100vw;
   min-height:100vh;
   padding:100px 0;
   background:url('../images/bg.png') repeat;
 }
-.nav-list{display:flex; justify-content:center}
-.nav-list li{margin:0 20px;}
 
+.section{
+	position:relative;
+	width:1240px;
+	margin:0 auto;
+	min-height:calc(100vh - 200px);
+	box-sizing:border-box;
+	padding-top:247px;
+
+}
+
+.section:before{
+	position:absolute;
+	top:0;
+	left:50%;
+	content:'';
+	display:block;
+	width:1296px;
+	height:275px;
+	margin-top:-28px;
+	background:url('../images/top_bg.png') no-repeat;
+	transform:translateX(-50%);
+}
+.section .inner {
+	background:url('../images/bg_white.png') repeat;
+	box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.4);
+	overflow:hidden;
+}
+
+.happy-title{position:relative; margin-top:-60px;}
+.happy-title img{vertical-align:top;}
+.nav-list{display:flex; justify-content:space-between; width:822px; margin:96px auto auto;}
+.nav-list li a{display:block; width:232px; height:232px;}
+.nav-list li.decotter a{background:url("../images/icon01.png") no-repeat center;}
+.nav-list li.message a{background:url("../images/icon02.png") no-repeat center;}
+.nav-list li.collaboration a{background:url("../images/icon03.png") no-repeat center;}
+.nav-list li span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
+.green-hr{width:892px; height:1px; margin:105px auto 0; background:#4ccdb3; border:none;}
+.main-desc{margin-top:70px; text-align:center; color:#4ccdb3; font-size:23px; line-height:29px;}
+.link-twitter{display:block; width:101px; height:100px; margin:129px auto 138px; background:url(../images/icon_writter.png) no-repeat center;}
+.link-twitter span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
 .thum-list{
   display:flex;
   flex-wrap:wrap;
 }
 .thum-list li{margin:0 10px;}
 
-.section{
-  position:relative;
-  width:1240px;
-  margin:0 auto;
-  min-height:calc(100vh - 200px);
-  background:#fff;
-}
 
 .guide-box{
   display:flex;
@@ -56,7 +88,7 @@
 .thum-list li{width:250px; height:250px; overflow:hidden; background:red; margin-bottom:20px;}
 .thum-list li .thum{position:relative; padding-top:100%;}
 .thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
-.modal-container{min-width:1240px; width:calc(100vw - 50px) !important; height:calc(100vh - 50px) !important; box-sizing:border-box; overflow:auto !important;}
+.modal-container{box-sizing:border-box; overflow:auto !important;}
 .modal-container .swiper-slide{text-align:center;}
 .modal-container .swiper-slide img{max-width:100%;}
 
