@@ -14,7 +14,7 @@
 
 				//
 			</p>
-			<hr class="green-hr">
+			<hr class="green-hr mt45">
 			<div class="decotter-img">
 				<img src="../assets/images/decotter.png" alt="">
 			</div>

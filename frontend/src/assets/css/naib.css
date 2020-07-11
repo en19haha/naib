@@ -2,6 +2,7 @@
 
 /* common */
 .mt77{margin-top:77px !important;}
+.mt45{margin-top:45px !important;}
 
 /* layout */
 .wrap{
@@ -59,11 +60,11 @@
 .nav-list li.decotter a:focus{background-image:url('../images/icon01_on.png'); transition:all ease-in-out 1ms}
 .nav-list li.message a{background-image:url("../images/icon02.png");}
 .nav-list li.collaboration a{background-image:url("../images/icon03.png");}
-.nav-list li.coming a{background-image:url("../images/icon03.png"); cursor:default;}
+.nav-list li.coming a{background-image:url("../images/icon03.png"); cursor:default; opacity:0.3;}
 .nav-list li span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
 .green-hr{width:892px; height:1px; margin:80px auto 0; background:#4ccdb3; border:none;}
-.main-desc{margin-top:70px; text-align:center; color:#4ccdb3; font-size:18px; line-height:22px;}
-.link-twitter{display:block; width:101px; height:100px; margin:55px auto 0; background:url(../images/icon_writter.png) no-repeat center;}
+.main-desc{margin-top:45px; text-align:center; color:#4ccdb3; font-size:18px; line-height:22px;}
+.link-twitter{display:block; width:71px; height:70px; margin:55px auto 0; background:url(../images/icon_writter.png) no-repeat center;}
 .link-twitter span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
 
 /* decotter */
