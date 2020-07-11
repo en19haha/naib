@@ -10,6 +10,7 @@ body {
 	font: inherit;
 	vertical-align: baseline;
 	font-family: 'Nanum Myeongjo','Malgun Gothic' ,'Spoqa Han Sans', 'Sans-serif';
+	min-width: 1240px;
 }
 h1,
 p,
