@@ -7,7 +7,7 @@
 /* layout */
 .wrap{
   box-sizing:border-box;
-	min-width:100vw;
+	min-width:calc(100vw - 20px);
   min-height:100vh;
 	padding:105px 0;
   background:url('../images/bg.png') repeat;
@@ -35,7 +35,7 @@
 	width:100vw;
 	height:275px;
 	margin-top:-28px;
-	background:url('../images/top_bg.png') no-repeat;
+	background:url('../images/top_bg.png') no-repeat center;
 	transform:translateX(-50%);
 }
 .section .inner {
@@ -54,13 +54,14 @@
 .happy-title{position:relative; margin-top:-96px;}
 .happy-title img{vertical-align:top;}
 .nav-list{display:flex; justify-content:space-between; width:630px; margin:74px auto auto;}
-.nav-list li a{display:block; width:184px; height:184px;background: no-repeat center 0 / cover; cursor:pointer;}
+.nav-list li a,
+.nav-list li span{display:block; width:184px; height:184px;background: no-repeat center 0 / cover; cursor:pointer;}
 .nav-list li.decotter a{background-image:url("../images/icon01.png");}
 .nav-list li.decotter a:hover,
 .nav-list li.decotter a:focus{background-image:url('../images/icon01_on.png'); transition:all ease-in-out 1ms}
 .nav-list li.message a{background-image:url("../images/icon02.png");}
 .nav-list li.collaboration a{background-image:url("../images/icon03.png");}
-.nav-list li.coming a{background-image:url("../images/icon03.png"); cursor:default; opacity:0.3;}
+.nav-list li.coming span{background-image:url("../images/icon03.png"); cursor:default; opacity:0.3;}
 .nav-list li span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
 .green-hr{width:892px; height:1px; margin:80px auto 0; background:#4ccdb3; border:none;}
 .main-desc{margin-top:45px; text-align:center; color:#4ccdb3; font-size:18px; line-height:22px;}
