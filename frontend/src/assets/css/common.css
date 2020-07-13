@@ -1,5 +1,5 @@
-/* 
-	color hunt palette  
+/*
+	color hunt palette
 	https://colorhunt.co/palette/15830
 */
 body {
@@ -7,8 +7,6 @@ body {
 }
 .app {
 	position: relative;
-	width: 100%;
-	height: 100%;
   font-size: 1.4rem;
 }
 .app-contents {
@@ -33,7 +31,7 @@ a:hover {
   max-width: 1020px;
   margin: 0 auto;
   padding: 0 5px;
-  width: 100%;  
+  width: 100%;
 }
 
 /*--- FORM ---*/
