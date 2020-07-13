@@ -18,19 +18,21 @@
                     v-for="(slide, index) in slideData"
                     :key="index"
                   >
-                    <img :src="slide.img">
+                    <div class="inner-img">
+                      <span class="thum"> <img :src="slide.img" style="max-height:100%;"></span>
+                      <p><em>{{slide.title}}</em></p>
+                    </div>
                   </div>
                 </div>
 
                 <div class="swiper-button-prev" slot="button-prev"></div>
                 <div class="swiper-button-next" slot="button-next"></div>
-                <div class="swiper-pagination"></div>
               </div>
             </slot>
           </div>
 
           <button class="modal-default-button" @click="$emit('close')">
-            OK
+            <span><img src="../assets/images/close.png" alt="닫기"></span>
           </button>
         </div>
       </div>
@@ -53,6 +55,11 @@ export default {
         autoHeight:true,
       },
     };
+  },
+  computed : {
+    test(){
+      return require(this.slideData.img)
+    }
   },
   props: ["slideData", "openIndex"],
 };
