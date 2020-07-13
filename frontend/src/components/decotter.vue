@@ -16,7 +16,9 @@
 			</p>
 			<hr class="green-hr mt45">
 			<div class="decotter-img">
-				<img src="../assets/images/decotter.png" alt="">
+				<a href="https://icondecotter.jp/detail.php?id=60279" target="_blank">
+					<img src="../assets/images/decotter.png" alt="">
+				</a>
 			</div>
 		</div>
 	</div>
