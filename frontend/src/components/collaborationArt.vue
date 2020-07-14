@@ -1,14 +1,20 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
   <div class="section">
-    <h1>합작 그림페이지 요기 안에서 디자인 자유롭게<br>높이 값은 상관없음<br> 썸네일 크기 상관없음 </h1>
-    <ul class="thum-list">
-      <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
-        <div class="thum">
-          <img :src="slide.img">
-        </div>
-      </li>
-    </ul>
+
+    <div class="inner">
+      <h1 class="happy-title">
+        <img src="../assets/images/title_coll.png" alt="">
+      </h1>
+      <ul class="thum-list">
+        <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
+          <div class="thum">
+            <img src="../assets/images/thum.png" alt="">
+          </div>
+        </li>
+      </ul>
+      <router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
+    </div>
     <!--<button id="show-modal">Show Modal1</button>
     <button id="show-modal" @click="showModal = true">Show Modal2</button>
     <button id="show-modal" @click="showModal = true">Show Modal3</button>-->
@@ -32,8 +38,8 @@ export default {
       showModal: false,
       slideData: [
         {
-          title: "지은유55",
-          img: "http://placehold.it/1200x1200",
+          title: "릴",
+          img: require("@/assets/images/collabo/01.png"),
         },
         {
           title: "지은유",
@@ -84,7 +90,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   display: table;
   transition: opacity 0.3s ease;
 }

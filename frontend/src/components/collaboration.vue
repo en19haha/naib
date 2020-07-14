@@ -1,11 +1,23 @@
 <template>
 	<div class="section">
-		<div class="guide-box">
-			<h1>합작 메인페이지 요기 안에서 디자인 자유롭게<br>높이 값은 상관없음</h1>
-			<ul class="col-list">
-				<li><router-link to="/collaboration/art">ART</router-link></li>
-				<li><router-link to="/collaboration/write">Write</router-link></li>
+		<div class="inner">
+			<h1 class="happy-title">
+				<img src="../assets/images/title_coll.png" alt="">
+			</h1>
+			<ul class="nav-list" style="width:425px;">
+				<li class="art"><router-link to="/collaboration/art"><span>ART</span></router-link></li>
+				<li class="write"><router-link to="/collaboration/write"><span>Write</span></router-link></li>
 			</ul>
+			<hr class="green-hr">
+			<p class="main-desc">
+				//<br><br>
+
+				나이브 생일 기념 합작을 공개합니다.<br>
+				참여해주신 모든 분들, 감사합니다!<br><br>
+
+				//
+			</p>
+			<hr class="green-hr mt45">
 		</div>
 	</div>
 </template>

@@ -11,6 +11,7 @@
   min-height:100vh;
 	padding:105px 0;
   background:url('../images/bg.png') repeat;
+	overflow:hidden;
 
 }
 
@@ -62,6 +63,12 @@
 .nav-list li.message a{background-image:url("../images/icon02.png");}
 .nav-list li.collaboration a{background-image:url("../images/icon03.png");}
 .nav-list li.coming span{background-image:url("../images/icon03.png"); cursor:default; opacity:0.3;}
+.nav-list li.art a{background-image:url("../images/icon_art.png");}
+.nav-list li.art a:hover,
+.nav-list li.art a:focus{background-image:url('../images/icon_art-on.png'); transition:all ease-in-out 1ms}
+.nav-list li.write a{background-image:url("../images/icon_write.png");}
+.nav-list li.write a:hover,
+.nav-list li.write a:focus{background-image:url('../images/icon_write-on.png'); transition:all ease-in-out 1ms}
 .nav-list li span{position:relative; display:block; text-indent:-9999px; overflow:hidden;}
 .green-hr{width:892px; height:1px; margin:80px auto 0; background:#4ccdb3; border:none;}
 .main-desc{margin-top:45px; text-align:center; color:#4ccdb3; font-size:18px; line-height:22px;}
@@ -78,9 +85,35 @@
   display:flex;
   flex-wrap:wrap;
 }
-.thum-list li{margin:0 10px;}
+.thum-list{display:flex; width:100%; margin-top:66px; padding:0 240px; box-sizing:border-box; flex-wrap:wrap; align-items:center;}
+.thum-list li{width:138px; height:138px; margin:14px 7px 0; overflow:hidden;}
+.thum-list li .thum{position:relative; padding-top:100%;}
+.thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
+.btn-back{display:block; width:118px; margin:70px auto 0;}
+.btn-back img{vertical-align:top;}
 
-
+.modal-container{position:relative; width:1500px !important; padding:0 0 140px!important; box-sizing:border-box; overflow:auto;}
+.modal-container .modal-default-button{position:absolute; bottom:60px; left:50%; display:block; background:none; border:none; transform:translateX(-50%);}
+.modal-container .modal-default-button:hover,
+.modal-container .modal-default-button:focus{border:none; outline:none}
+.modal-container .modal-default-button span{position:relative}
+.modal-container .modal-body{margin:0;  padding:65px 0 0 !important;}
+.modal-container .swiper-wrapper{}
+.modal-container .swiper-slide{padding:0 100px; text-align:center;}
+.modal-container .swiper-slide .inner-img{}
+.modal-container .swiper-slide .inner-img .thum{display:block; overflow:auto; max-height:calc(100vh - 400px);}
+.modal-container .swiper-slide img{max-width:100%;}
+.modal-container .swiper-slide p{padding-top:22px;text-align:right; font-size:40px; letter-spacing:-0.6px; color:#23bc84;}
+.modal-container .swiper-button-prev,
+.modal-container .swiper-button-next{
+	left:30px;
+	width:30px;
+	height:72px;
+	background:url('../images/btn-left.png') no-repeat center;
+}
+.modal-container .swiper-button-next{left:auto; right:30px; background:url('../images/btn-right.png') no-repeat center;}
+.modal-container .swiper-button-prev:after{display:none !important;}
+.modal-container .swiper-button-next:after{display:none !important;}
 .guide-box{
   display:flex;
   height:100%;
@@ -109,15 +142,11 @@
 .col-list li{border:1px solid red; padding:10px;}
 .col-list li + li{margin-left:20px;}
 
-.thum-list{display:flex; flex-wrap:wrap; }
 
-.thum-list li{width:250px; height:250px; overflow:hidden; background:red; margin-bottom:20px;}
-.thum-list li .thum{position:relative; padding-top:100%;}
-.thum-list li .thum img{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)}
-.modal-container{box-sizing:border-box; overflow:auto !important;}
-.modal-container .swiper-slide{text-align:center;}
-.modal-container .swiper-slide img{max-width:100%;}
 
-.link-list{display:flex; justify-content:center;}
-.link-list li + li{margin-left:20px;}
+.link-list{display:flex; justify-content:left; margin-top:40px; padding:0 165px; flex-wrap:wrap;}
+.link-list li{margin:40px 15px 0;}
+.link-list li img{vertical-align:top;}
+.write-box{width:880px; margin:0 auto; padding:66px 35px; text-align:left; box-sizing:border-box; background:url(../images/write/bg.png) repeat; font-size:16px; line-height:26px; color:#23bc84;}
+.write-box p{text-align:right}
 .cont{text-align:center; padding:100px;}
