@@ -1,32 +1,34 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
-  <div class="section">
+  <div class="wrap">
+    <div class="section">
 
-    <div class="inner">
-      <h1 class="happy-title">
-        <img src="../assets/images/title_coll.png" alt="">
-      </h1>
-      <ul class="thum-list">
-        <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
-          <div class="thum">
-            <img src="../assets/images/thum.png" alt="">
-          </div>
-        </li>
-      </ul>
-      <router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
+      <div class="inner">
+        <h1 class="happy-title">
+          <img src="../assets/images/title_coll.png" alt="">
+        </h1>
+        <ul class="thum-list">
+          <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
+            <div class="thum">
+              <img src="../assets/images/thum.png" alt="">
+            </div>
+          </li>
+        </ul>
+        <router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
+      </div>
+      <!--<button id="show-modal">Show Modal1</button>
+	  <button id="show-modal" @click="showModal = true">Show Modal2</button>
+	  <button id="show-modal" @click="showModal = true">Show Modal3</button>-->
+
+      <modal
+              v-if="showModal"
+              v-bind:slideData="slideData"
+              v-bind:openIndex="openIndex"
+              @close="showModal = false"
+      >
+        <h3 slot="header">custom header</h3>
+      </modal>
     </div>
-    <!--<button id="show-modal">Show Modal1</button>
-    <button id="show-modal" @click="showModal = true">Show Modal2</button>
-    <button id="show-modal" @click="showModal = true">Show Modal3</button>-->
-
-    <modal
-      v-if="showModal"
-      v-bind:slideData="slideData"
-      v-bind:openIndex="openIndex"
-      @close="showModal = false"
-    >
-      <h3 slot="header">custom header</h3>
-    </modal>
   </div>
 </template>
 

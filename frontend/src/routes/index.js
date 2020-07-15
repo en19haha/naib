@@ -76,7 +76,7 @@ export default new Router({
       component: CollaborationArt,
     },
     {
-      path: "/collaboration/write",
+      path: "/collaboration/text",
       name: "detail",
       component: CollaborationWrite,
     },
