@@ -3,10 +3,12 @@
       <div class="section">
           <ul v-if="postItems" class="comment-list">
               <li v-for="(item, index) in postItems" :key="index">
-                  <!--        <div><span>id :</span> {{ item.title }}</div>-->
-                  <div> <span>축하 멘트 :</span>{{ item.contents }}</div>
+                  {{ item.contents }}
               </li>
           </ul>
+          <div class="naib">
+              <img src="http://placehold.it/463x765" alt="">
+          </div>
           <div class="comment">
               <form @submit.prevent="submitForm" class="form">
                <div class="inner">
@@ -32,9 +34,12 @@ export default {
   name: "comment",
   data() {
     return {
+        username: "test@test.com",
+        password: "testtest",
+        logMessage: "",
       title: "",
       contents: "",
-      cmtKey: new Date(),
+      cmtKey: this.$id('ddd'),
       resultMessage: "",
       postItems: null,
     };
@@ -42,6 +47,9 @@ export default {
   created() {
     this.fetchData();
   },
+    mounted() {
+        this.login();
+    },
   methods: {
     async fetchData() {
       try {
@@ -70,10 +78,35 @@ export default {
         this.resultMessage = error.data.message;
       }
     },
+    async login() {
+      if (!this.username || !this.password) {
+          alert("Fill in the account information");
+          return;
+      }
+      try {
+          const response = await this.$store.dispatch("LOGIN", {
+              username: this.username,
+              password: this.password,
+          });
+          bus.$emit("show:toast", response.data.message);
+          //this.$router.push("/");
+          this.initForm();
+      } catch (error) {
+          this.logMessage = error.response.data;
+      }
+    },
+    initForm() {
+      this.username = "";
+      this.password = "";
+    },
   },
 };
 </script>
 <style scoped>
+    .comment2-list {
+        position:absolute; top:0; left:0; color:#fff;
+        font-size:400px;
+    }
 input {
   border: 1px solid red;
 }

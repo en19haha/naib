@@ -3,13 +3,12 @@ import mongoose from 'mongoose';
 const postSchema = new mongoose.Schema(
     {
         cmtKey: {
-            type: Date,
+            type: String,
             required: true,
             index: true,
         },
         title: String,
         contents: String,
-
         createdBy: {
             type: mongoose.SchemaTypes.ObjectId,
             ref: 'Users',

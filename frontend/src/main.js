@@ -11,7 +11,9 @@ import * as filters from "./utils/filters.js";
 import axios from "axios";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
+import UniqueId from 'vue-unique-id';
 
+Vue.use(UniqueId);
 Vue.use(ElementUI);
 
 Vue.use(VueAwesomeSwiper /* { default options with global component } */);
