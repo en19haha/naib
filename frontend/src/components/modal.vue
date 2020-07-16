@@ -44,6 +44,9 @@ export default {
   data() {
     return {
       swiperOption: {
+        zoom:{
+          zoomedSlideClass: 'zoom',
+        },
         initialSlide: this.openIndex,
         pagination: {
           el: ".swiper-pagination",

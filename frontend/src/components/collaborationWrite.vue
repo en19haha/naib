@@ -1,7 +1,6 @@
 <template>
 	<div class="wrap">
-		<div class="section">
-
+		<div class="section" id="top">
 			<div class="inner">
 				<h1 class="happy-title">
 					<img src="../assets/images/title_coll.png" alt="">
@@ -38,7 +37,7 @@
 				<div class="cont">
 					<component v-bind:is="pageName"/>
 				</div>
-				<router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
+				<a href="#top" class="btn-back"><img src="../assets/images/back.png" alt=""></a>
 			</div>
 		</div>
 	</div>

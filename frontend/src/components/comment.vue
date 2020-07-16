@@ -83,14 +83,15 @@ export default {
               this.fetchData();
               this.mee = this.contents;
               document.querySelector('.message-txt').classList.add('active');
-              setTimeout(function () {
-                document.querySelector('.message-txt').classList.remove('active');
-              },5000)
+              this.title = ''
+              this.contents = ''
+              // setTimeout(function () {
+              //   document.querySelector('.message-txt').classList.remove('active');
+              // },5000)
           }
       }catch (error) {
           console.log(error.data.error.errmsg);
           this.resultMessage = error.data.message;
-          alert('같은 아이디를 입력할 수 없습니다')
       }
 
     },

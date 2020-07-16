@@ -1,7 +1,7 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
   <div class="wrap">
-    <div class="section">
+    <div class="section" id="top">
 
       <div class="inner">
         <h1 class="happy-title">
@@ -14,7 +14,7 @@
             </div>
           </li>
         </ul>
-        <router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
+        <a href="#top" class="btn-back"><img src="../assets/images/back.png" alt=""></a>
       </div>
       <!--<button id="show-modal">Show Modal1</button>
 	  <button id="show-modal" @click="showModal = true">Show Modal2</button>
