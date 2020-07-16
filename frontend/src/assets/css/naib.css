@@ -161,22 +161,25 @@
 	overflow:hidden;
 }
 .message-wrap .section{position:relative; display:flex; height:100%; padding:0; height:100vh; flex-direction:column; justify-content:flex-end}
+.message-wrap .message-txt{z-index:3;position:absolute; top:100px; left:50%; width:300px; height:100px; padding:20px; font-size:20px; color:#fdffbe; font-size:40px; margin-left:-150px; background:rgba(255, 255, 255, 0.5); transform:scale(0.9); opacity:0; transition:all 1s ease-in-out;}
+.message-wrap .message-txt.active{transform:scale(1); opacity:1;  transition:all 1s ease-in-out; }
 .comment-list{z-index:2; position:absolute; top:0; left:50%; width:100%; height:818px; transform:translateX(-50%); overflow:hidden}
 .comment-list li{position:absolute; bottom:-999px; left:-9999px; display: -webkit-box; width:320px; padding:0 20px; font-size:20px; color:#fdffbe; text-align:center; overflow: hidden; text-overflow: ellipsis;  -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-wrap:break-word;}
 .comment-list li:nth-child(1){bottom:21px; left:64px;}
-.comment-list li:nth-child(2){bottom:17px; left:986px;}
-.comment-list li:nth-child(3){bottom:233px; left:100px;}
+.comment-list li:nth-child(10){bottom:17px; left:986px;}
+.comment-list li:nth-child(12){bottom:233px; left:100px;}
 .comment-list li:nth-child(4){bottom:329px; left:10px;}
 .comment-list li:nth-child(5){bottom:140px; left:896px;}
-.comment-list li:nth-child(6){bottom:224px; left:1000px;}
+.comment-list li:nth-child(9){bottom:224px; left:1000px;}
 .comment-list li:nth-child(7){bottom:373px; left:870px;}
-.comment-list li:nth-child(8){bottom: 760px;left: 511px;}
-.comment-list li:nth-child(9){bottom: 670px;left: 680px;}
-.comment-list li:nth-child(10){bottom: 760px;left: 850px;}
+.comment-list li:nth-child(14){bottom: 760px;left: 511px;}
+.comment-list li:nth-child(6){bottom: 670px;left: 680px;}
+.comment-list li:nth-child(2){bottom: 760px;left: 850px;}
 .comment-list li:nth-child(11){bottom: 200px;left: 790px;}
-.comment-list li:nth-child(12){bottom: 500px;left: 70px;}
+.comment-list li:nth-child(4){bottom: 500px;left: 70px;}
 .comment-list li:nth-child(13){bottom: 530px;left: 800px;}
-.comment-list li:nth-child(14){bottom:710px; left:200px;}
+.comment-list li:nth-child(8){bottom:710px; left:200px;}
+.comment-list li.hide{transform:scale(0.9); transition:all 1s ease-in-out; opacity:0}
 .naib{position:absolute; bottom:0; left:50%; width:463px; height:765px;  transform:translateX(-50%);}
 .comment{position:relative}
 .comment .inner{display:flex; padding-bottom:30px;}
