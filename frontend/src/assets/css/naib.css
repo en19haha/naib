@@ -182,7 +182,7 @@
 .comment-list li:nth-child(13){bottom: 530px;left: 940px;}
 .comment-list li:nth-child(8){bottom:710px; left:200px;}
 .comment-list li.hide{transform:scale(0.9); transition:all 1s ease-in-out; opacity:0}
-.naib{position:absolute; bottom:0; left:50%; width:463px; height:765px;  transform:translateX(-50%);}
+.naib{position:absolute; bottom:0; left:50%; transform:translateX(-50%);}
 .comment{position:relative}
 .comment .inner{display:flex; padding-bottom:30px;}
 .comment .inner .icon-mail{display:block; flex-grow: 0; flex-shrink: 0;flex-basis: 67px; height:51px;background:url(../images/comment/icon.png) no-repeat}

@@ -11,7 +11,7 @@
           </ul>
 
           <div class="naib">
-              <img src="http://placehold.it/463x765" alt="">
+              <img src="../assets/images/comment/naib.png" alt="나이브">
           </div>
           <div class="comment">
               <form @submit.prevent="submitForm" class="form">
