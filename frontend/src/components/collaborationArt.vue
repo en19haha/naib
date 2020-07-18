@@ -1,7 +1,7 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
   <div class="wrap">
-    <div class="section" id="top">
+    <div class="section">
 
       <div class="inner">
         <h1 class="happy-title">
@@ -10,11 +10,11 @@
         <ul class="thum-list">
           <li v-for="(slide, index) in slideData" :key="index" @click="open(index)">
             <div class="thum">
-              <img src="../assets/images/thum.png" alt="">
+              <img :src="slide.img" alt="">
             </div>
           </li>
         </ul>
-        <a href="#top" class="btn-back"><img src="../assets/images/back.png" alt=""></a>
+	      <router-link to="/collaboration" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
       </div>
       <!--<button id="show-modal">Show Modal1</button>
 	  <button id="show-modal" @click="showModal = true">Show Modal2</button>
@@ -41,32 +41,84 @@ export default {
       slideData: [
         {
           title: "릴",
-          img: require("@/assets/images/collabo/01.png"),
+          img: require("@/assets/images/collabo/01.jpg"),
         },
         {
-          title: "지은유",
-          img: "http://placehold.it/800x400",
+          title: "비향",
+          img: require("@/assets/images/collabo/02.png"),
         },
         {
-          title: "지은유1",
-          img: "http://placehold.it/1900x1900",
+          title: "수사",
+            img: require("@/assets/images/collabo/03.png"),
         },
         {
-          title: "지은유2",
+
+            img: require("@/assets/images/collabo/04.png"),
+        },
+        {
+          title: "연탄콩",
+            img: require("@/assets/images/collabo/05.png"),
+        },
+        {
+          title: "echu",
+            img: require("@/assets/images/collabo/06.png"),
+        },
+        {
+          title: "지은유07",
           img: "http://placehold.it/400x200",
         },
-        {
-          title: "지은유3",
-          img: "http://placehold.it/400x200",
-        },
-        {
-          title: "지은유4",
-          img: "http://placehold.it/400x200",
-        },
-        {
-          title: "지은유5",
-          img: "http://placehold.it/400x200",
-        },
+          {
+              title: "지은유08",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유09",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유10",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유11",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유12",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유13",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유14",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유15",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유16",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유17",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유18",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유19",
+              img: "http://placehold.it/400x200",
+          },
+          {
+              title: "지은유20",
+              img: "http://placehold.it/400x200",
+          },
       ],
       openIndex: null,
     };
@@ -85,67 +137,5 @@ export default {
 };
 </script>
 <style>
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: table;
-  transition: opacity 0.3s ease;
-}
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
-
-.modal-default-button {
-  float: right;
-}
-
-/*
-	 * The following styles are auto-applied to elements with
-	 * transition="modal" when their visibility is toggled
-	 * by Vue.js.
-	 *
-	 * You can easily play with the modal transition by editing
-	 * these styles.
-	 */
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 </style>

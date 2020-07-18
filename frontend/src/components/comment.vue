@@ -13,31 +13,39 @@
           <div class="naib">
               <img src="../assets/images/comment/naib.png" alt="나이브">
           </div>
+
           <div class="comment">
               <form @submit.prevent="submitForm" class="form">
                <div class="inner">
-                   <i class="icon-mail"></i>
+                   <i class="icon-mail" @click="open()"></i>
                    <label class="id">
-                       <input type="text" v-model="title" placeholder="트위터 아이디"/>
+                       <input type="text" v-model="title" placeholder="트위터ID"/>
                    </label>
                    <label class="message">
-                       <input type="text" v-model="contents"  placeholder="메세지를 입력해 주세요"/>
+                       <input type="text" v-model="contents"  placeholder="메세지를 입력해 주세요" maxlength="30"/>
                    </label>
                    <button type="submit"><span>SEND</span></button>
                </div>
               </form>
           </div>
+	      <modal02
+			      v-if="showModal"
+			      @close="showModal = false"
+	      >
+	      </modal02>
       </div>
   </div>
 </template>
 <script>
 import { createNewPost, fetchPosts } from "@/api/posts";
+import modal02 from "./modal02";
 import bus from "@/utils/bus";
 
 export default {
   name: "comment",
   data() {
     return {
+        showModal:true,
         username: "test@test.com",
         password: "testtest",
         logMessage: "",
@@ -49,6 +57,9 @@ export default {
         mee:''
     };
   },
+	components:{
+        modal02
+	},
   created() {
     this.fetchData();
   },
@@ -56,6 +67,9 @@ export default {
         this.login();
     },
   methods: {
+      open() {
+          this.showModal = true;
+      },
     async fetchData() {
       try {
         const {

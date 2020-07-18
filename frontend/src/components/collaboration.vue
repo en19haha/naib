@@ -19,6 +19,7 @@
 					//
 				</p>
 				<hr class="green-hr mt45">
+				<router-link to="/" class="btn-back"><img src="../assets/images/back.png" alt=""></router-link>
 			</div>
 		</div>
 	</div>

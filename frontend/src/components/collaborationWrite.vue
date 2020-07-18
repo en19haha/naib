@@ -37,24 +37,26 @@
 				<div class="cont">
 					<component v-bind:is="pageName"/>
 				</div>
-				<a href="#top" class="btn-back"><img src="../assets/images/back.png" alt=""></a>
+
 			</div>
 		</div>
 	</div>
 </template>
 <script>
-	import view01 from "@/components/write/view01";
-	import view02 from "@/components/write/view02";
+	import view01 from "./write/view01";
+	import view02 from "./write/view02";
+	import mainWrite from "./write/mainWrite";
 
 	export default {
 		data(){
 			return {
-				pageName : 'view01'
+				pageName : 'mainWrite'
 			}
 		},
 		components: {
 			view01,
 			view02,
+            mainWrite
 		}
 	};
 </script>
