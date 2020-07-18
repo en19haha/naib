@@ -5,7 +5,7 @@ import SignupView from '../views/SignupView';
 import MainView from '../views/MainView';
 import PostAddView from '../views/PostAddView';
 import PostDetailView from '../views/PostDetailView';
-import test from '../views/test';
+import test from '../views/admin';
 import store from '../store';
 import { getUserFromCookie } from '../utils/cookies.js';
 import eventMain from '@/views/eventMain';

@@ -408,27 +408,25 @@
     color: #fdffbe;
     margin-left: -150px;
     text-align: center;
-    transform: scale(0.9);
-    opacity: 0;
-    transition: all 1s ease-in-out;
     word-break: keep-all;
-}
-.message-wrap .message-txt.active {
-    transform: scale(1);
-    opacity: 1;
-    transition: all 1s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    perspective: 400px;
+    margin-top: -44px;
 }
 .comment-list {
     z-index: 2;
     position: absolute;
-    top: 90px;
+    bottom: 110px;
     left: 50%;
     width: 100%;
     height: 818px;
     transform: translateX(-50%);
     overflow: hidden;
 }
-.comment-list li {
+.comment-list-item {
     position: absolute;
     bottom: -999px;
     left: -9999px;
@@ -443,69 +441,75 @@
     -webkit-box-orient: vertical;
     word-break: keep-all;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+    height: 2.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    perspective: 400px;
 }
-.comment-list li:nth-child(1) {
+.comment-list-item.item1 {
     bottom: 21px;
     left: 64px;
     font-size: 14px;
 }
-.comment-list li:nth-child(2) {
+.comment-list-item.item2 {
     bottom: 17px;
     left: 846px;
 }
-.comment-list li:nth-child(12) {
+.comment-list-item.item12 {
     bottom: 263px;
     left: 100px;
     font-size: 14px;
 }
-.comment-list li:nth-child(4) {
+.comment-list-item.item4 {
     bottom: 129px;
     left: 10px;
     font-size: 20px;
 }
-.comment-list li:nth-child(5) {
+.comment-list-item.item5 {
     bottom: 140px;
     left: 896px;
 }
-.comment-list li:nth-child(9) {
+.comment-list-item.item9 {
     bottom: 484px;
     left: 930px;
     font-size: 16px;
 }
-.comment-list li:nth-child(7) {
+.comment-list-item.item7 {
     bottom: 373px;
     left: 870px;
     font-size: 20px;
 }
-.comment-list li:nth-child(14) {
+.comment-list-item.item14 {
     bottom: 770px;
     left: 821px;
     font-size: 14px;
 }
-.comment-list li:nth-child(3) {
+.comment-list-item.item3 {
     bottom: 670px;
     left: 830px;
 }
-.comment-list li:nth-child(10) {
+.comment-list-item.item10 {
     bottom: 380px;
     left: -20px;
 }
-.comment-list li:nth-child(11) {
+.comment-list-item.item11 {
     bottom: 230px;
     left: 790px;
     font-size: 20px;
 }
-.comment-list li:nth-child(6) {
+.comment-list-item.item6 {
     bottom: 580px;
     left: 70px;
     font-size: 20px;
 }
-.comment-list li:nth-child(13) {
+.comment-list-item.item13 {
     bottom: 570px;
     left: 740px;
     font-size: 14px;
 }
-.comment-list li:nth-child(8) {
+.comment-list-item.item8 {
     bottom: 710px;
     left: 130px;
 }

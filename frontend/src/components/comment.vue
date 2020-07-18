@@ -1,9 +1,14 @@
 <template>
     <div class="message-wrap">
         <div class="section">
-            <div class="message-txt">
-                {{ mee }}
-            </div>
+            <transition
+                mode="out-in"
+                v-bind:css="false"
+                v-on:enter="listEnter"
+                v-on:leave="listLeave"
+            >
+                <div class="message-txt" v-if="mee" v-html="mee"></div>
+            </transition>
             <transition-group
                 v-if="randomList"
                 name="comment-list"
@@ -15,8 +20,8 @@
                 v-on:leave="listLeave"
             >
                 <li
-                    v-for="item in randomList"
-                    :class="commentItemClass()"
+                    v-for="(item, index) in randomList"
+                    :class="commentItemClass(index)"
                     :key="item.contents"
                     v-html="item.contents"
                 ></li>
@@ -36,6 +41,7 @@
                                 ref="userId"
                                 v-model="title"
                                 placeholder="트위터ID"
+                                maxlength="10"
                             />
                         </label>
                         <label class="message">
@@ -67,6 +73,8 @@ export default {
     name: 'comment',
     data() {
         return {
+            timer: null,
+            itemLength: 14,
             showModal: true,
             username: 'test@test.com',
             password: 'testtest',
@@ -77,7 +85,7 @@ export default {
             resultMessage: '',
             postItems: null,
             randomList: [],
-            mee: '',
+            mee: null,
         };
     },
     watch: {
@@ -140,9 +148,15 @@ export default {
                 return Math.random() * (max - min) + min;
             }
             text.forEach((ele, i) => {
-                console.log(ele);
-                gsap.to(
+                gsap.fromTo(
                     ele,
+                    {
+                        opacity: 1,
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                        scale: 1,
+                    },
                     {
                         opacity: 0,
                         x: random(-100, 100),
@@ -159,7 +173,7 @@ export default {
         },
 
         randomDelete() {
-            const deleteLength = 1; //Math.floor(Math.random() * 3 + 2);
+            const deleteLength = Math.floor(Math.random() * 3 + 2);
             for (let i = deleteLength - 1; i >= 0; i--) {
                 let count = 0;
                 while (count < 1) {
@@ -177,17 +191,18 @@ export default {
             console.log(this.randomList);
         },
         ticker() {
-            setTimeout(() => {
+            this.timer = setTimeout(() => {
                 if (!!this.randomList.length) {
                     this.randomDelete();
                     this.ticker();
                 }
             }, 5000);
         },
-        commentItemClass() {
-            const fontSize = Math.random() >= 0.5 ? 'fontSize20' : 'fontSize20';
+        commentItemClass(index) {
+            console.log(123);
             const fadeTime = 'test';
-            return `${fontSize} ${fadeTime} comment-list-item`;
+            const itemIndex = `item${index + 1}`;
+            return `${itemIndex} ${fadeTime} comment-list-item`;
         },
         modalClose() {
             this.showModal = false;
@@ -196,7 +211,7 @@ export default {
             }
         },
         getListNum() {
-            while (this.randomList.length < 14) {
+            while (this.randomList.length < this.itemLength) {
                 const r = Math.floor(Math.random() * this.postItems.length);
                 const everyCheck = this.randomList.every(el => {
                     return el.contents !== this.postItems[r].contents;
@@ -205,6 +220,7 @@ export default {
                     this.randomList.push(this.postItems[r]);
                 }
             }
+            clearTimeout(this.timer);
             this.ticker();
         },
         open() {
@@ -240,13 +256,15 @@ export default {
                         cmtKey: this.cmtKey,
                     });
                     this.fetchData();
-                    this.mee = this.contents;
-                    document.querySelector('.message-txt').classList.add('active');
+                    this.mee = null;
+                    console.log(this.mee);
+                    this.mee = this.spliteTxt(this.contents);
+
                     this.title = '';
                     this.contents = '';
-                    // setTimeout(function () {
-                    //   document.querySelector('.message-txt').classList.remove('active');
-                    // },5000)
+                    setTimeout(() => {
+                        this.mee = null;
+                    }, 10000);
                 }
             } catch (error) {
                 console.log(error.data.error.errmsg);
@@ -295,29 +313,6 @@ input {
     border: 1px solid red;
 }
 
-.comment-list-item {
-    height: 2.5em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    perspective: 400px;
-}
-
-/*.comment-list-item {
-    height: 2.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 1s;
-}
-.comment-list-enter,
-.comment-list-leave-to {
-    opacity: 0;
-}
-.comment-list-leave-active {
-    position: absolute;
-}*/
 .modal-enter {
     opacity: 0;
 }
