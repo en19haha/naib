@@ -14,8 +14,6 @@ import Comment from '@/components/comment';
 import CollaborationMain from '@/views/collaborationMain';
 import CollaborationArt from '@/components/collaborationArt';
 import CollaborationWrite from '@/components/collaborationWrite';
-import { gsap, ScrollToPlugin } from 'gsap/all';
-gsap.registerPlugin(ScrollToPlugin);
 
 Vue.use(Router);
 
@@ -36,7 +34,7 @@ export default new Router({
             // },
         },
         {
-            path: '/admin',
+            path: '/oduck_oduck_admin',
             name: 'admin',
             component: admin,
             // beforeEnter(to, from, next) {
