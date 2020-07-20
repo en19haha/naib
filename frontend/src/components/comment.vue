@@ -21,7 +21,7 @@
             >
                 <li
                     v-for="(item, index) in randomList"
-                    :class="commentItemClass(index)"
+                    :class="[`item${index + 1}`, 'comment-list-item']"
                     :key="item.contents"
                     v-html="item.contents"
                 ></li>
@@ -146,38 +146,60 @@ export default {
             function random(min, max) {
                 return Math.random() * (max - min) + min;
             }
-            gsap.set(el, {
-                opacity: 0,
-            });
 
-            setTimeout(
-                () => {
-                    gsap.set(el, {
-                        opacity: 1,
-                    });
-                    const text = el.querySelectorAll('span');
-                    text.forEach((ele, i) => {
-                        gsap.from(ele, {
-                            opacity: 0,
-                            x: random(-100, 100),
-                            y: random(-50, 50),
-                            z: random(-200, 0),
-                            scale: 0.2,
-                            delay: i * 0.02,
-                            duration: 0.8,
-                            onComplete: done,
-                        });
-                    });
-                    this.firstInit = true;
+            gsap.fromTo(
+                el,
+                {
+                    opacity: 0,
+                    x: 0,
                 },
-                this.firstInit ? 0 : random(0, 2000)
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: this.firstInit ? 0 : (random(0, 2000) / 1000).toFixed(2),
+                    onComplete: () => {
+                        let count = 0;
+                        const text = el.querySelectorAll('span');
+                        const textLength = text.length;
+                        text.forEach((ele, i) => {
+                            gsap.fromTo(
+                                ele,
+                                {
+                                    opacity: 0,
+                                    x: random(-100, 100),
+                                    y: random(-50, 50),
+                                    z: random(-200, 0),
+                                    scale: 0.2,
+                                },
+                                {
+                                    opacity: 1,
+                                    x: 0,
+                                    y: 0,
+                                    z: 0,
+                                    scale: 1,
+                                    delay: i * 0.02,
+                                    duration: 0.8,
+                                    onComplete: () => {
+                                        count = count + 1;
+                                        if (textLength === count) {
+                                            done();
+                                            this.firstInit = true;
+                                        }
+                                    },
+                                }
+                            );
+                        });
+                    },
+                }
             );
         },
         listLeave: function(el, done) {
-            const text = el.querySelectorAll('span');
             function random(min, max) {
                 return Math.random() * (max - min) + min;
             }
+            const text = el.querySelectorAll('span');
+            const textLength = text.length;
+            let count = 0;
             text.forEach((ele, i) => {
                 gsap.fromTo(
                     ele,
@@ -196,7 +218,12 @@ export default {
                         scale: 0.2,
                         delay: i * 0.02,
                         duration: 1,
-                        onComplete: done,
+                        onComplete: () => {
+                            count = count + 1;
+                            if (textLength === count) {
+                                done();
+                            }
+                        },
                     }
                 );
             });
@@ -204,20 +231,18 @@ export default {
 
         // list setting
         randomDelete() {
-            const deleteLength = 15; //Math.floor(Math.random() * 3 + 2);
+            const deleteLength = Math.floor(Math.random() * 3 + 2);
             for (let i = deleteLength - 1; i >= 0; i--) {
                 let count = 0;
                 while (count < 1) {
                     const randomListR = Math.floor(Math.random() * this.randomList.length);
                     const postItemsR = Math.floor(Math.random() * this.postItems.length);
-                    console.log('--------------------------------------------');
+                    const postItem = this.postItems[postItemsR];
                     const everyCheck = this.randomList.every(el => {
-                        return el.contents !== this.postItems[postItemsR].contents;
-                        console.log(this.postItems[postItemsR].contents);
+                        return el.contents !== postItem.contents;
                     });
                     if (everyCheck) {
-                        console.log(this.postItems[postItemsR].contents);
-                        this.randomList.splice(randomListR, 1, this.postItems[postItemsR]);
+                        this.randomList.splice(randomListR, 1, postItem);
                         count = count + 1;
                     }
                 }
