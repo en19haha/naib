@@ -204,7 +204,7 @@ export default {
 
         // list setting
         randomDelete() {
-            const deleteLength = Math.floor(Math.random() * 3 + 2);
+            const deleteLength = 2; //Math.floor(Math.random() * 3 + 2);
             for (let i = deleteLength - 1; i >= 0; i--) {
                 let count = 0;
                 while (count < 1) {
