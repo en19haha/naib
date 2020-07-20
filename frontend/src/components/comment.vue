@@ -75,7 +75,7 @@ export default {
         return {
             firstInit: false,
             timer: null,
-            itemLength: 14,
+
             showModal: false,
             username: 'test@test.com',
             password: 'testtest',
@@ -91,7 +91,7 @@ export default {
     },
     watch: {
         randomList() {
-            //console.log(this.randomList);
+            console.log(this.randomList);
         },
     },
     components: {
@@ -99,6 +99,9 @@ export default {
     },
     created() {},
     computed: {
+        itemLength() {
+            return Math.min(14, this.postItems.length - 1);
+        },
         // liClass() {
         //     return {
         //         test: this.fontSize(),
@@ -170,7 +173,7 @@ export default {
                                 z: random(-200, 0),
                                 scale: 0.2,
                                 delay: i * 0.02,
-                                duration: 1,
+                                duration: 0.8,
                                 onComplete: done,
                             },
                             '+=0'
@@ -178,7 +181,7 @@ export default {
                     });
                     this.firstInit = true;
                 },
-                this.firstInit ? 0 : random(0, 3000)
+                this.firstInit ? 0 : random(0, 2000)
             );
         },
         listLeave: function(el, done) {
