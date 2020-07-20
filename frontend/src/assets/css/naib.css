@@ -25,7 +25,7 @@
 
 .section {
     position: relative;
-    width: 1400px;
+    width: 1240px;
     margin: 0 auto;
     min-height: calc(100vh - 200px);
     box-sizing: border-box;
@@ -391,6 +391,7 @@
 .message-wrap .section {
     position: relative;
     display: flex;
+	width:1400px;
     padding: 0;
     height: 100vh;
     flex-direction: column;
@@ -517,8 +518,9 @@
     left: 210px;
 }
 .comment-list-item.item15 {
-    bottom: 485px;
-    left: -20px;
+	bottom: 770px;
+	left: 80px;
+	font-size: 14px;
 }
 .comment-list li.hide {
     transform: scale(0.9);
