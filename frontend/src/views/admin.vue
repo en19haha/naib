@@ -111,13 +111,11 @@ export default {
                         cmtKey: this.cmtKey,
                     });
                     this.fetchData();
-                    this.mee = this.spliteTxt(this.contents);
                     this.title = '';
                     this.contents = '';
                 }
             } catch (error) {
-                console.log(error.data.error.errmsg);
-                this.resultMessage = error.data.message;
+                console.log(error);
             }
         },
         async login() {
@@ -148,8 +146,13 @@ export default {
 .adminBbs {
     display: flex;
     background: #fff;
+    padding-left: 300px;
 }
 .form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
     padding: 30px;
 }
 .adminTbl {

@@ -204,16 +204,19 @@ export default {
 
         // list setting
         randomDelete() {
-            const deleteLength = 2; //Math.floor(Math.random() * 3 + 2);
+            const deleteLength = 15; //Math.floor(Math.random() * 3 + 2);
             for (let i = deleteLength - 1; i >= 0; i--) {
                 let count = 0;
                 while (count < 1) {
                     const randomListR = Math.floor(Math.random() * this.randomList.length);
                     const postItemsR = Math.floor(Math.random() * this.postItems.length);
+                    console.log('--------------------------------------------');
                     const everyCheck = this.randomList.every(el => {
                         return el.contents !== this.postItems[postItemsR].contents;
+                        console.log(this.postItems[postItemsR].contents);
                     });
                     if (everyCheck) {
+                        console.log(this.postItems[postItemsR].contents);
                         this.randomList.splice(randomListR, 1, this.postItems[postItemsR]);
                         count = count + 1;
                     }
