@@ -99,7 +99,7 @@ export default {
     created() {},
     computed: {
         itemLength() {
-            return Math.min(15, this.postItems.length - 1);
+            return Math.min(15, this.postItems.length);
         },
     },
     mounted() {
@@ -157,20 +157,16 @@ export default {
                     });
                     const text = el.querySelectorAll('span');
                     text.forEach((ele, i) => {
-                        gsap.from(
-                            ele,
-                            {
-                                opacity: 0,
-                                x: random(-100, 100),
-                                y: random(-50, 50),
-                                z: random(-200, 0),
-                                scale: 0.2,
-                                delay: i * 0.02,
-                                duration: 0.8,
-                                onComplete: done,
-                            },
-                            '+=0'
-                        );
+                        gsap.from(ele, {
+                            opacity: 0,
+                            x: random(-100, 100),
+                            y: random(-50, 50),
+                            z: random(-200, 0),
+                            scale: 0.2,
+                            delay: i * 0.02,
+                            duration: 0.8,
+                            onComplete: done,
+                        });
                     });
                     this.firstInit = true;
                 },
@@ -201,8 +197,7 @@ export default {
                         delay: i * 0.02,
                         duration: 1,
                         onComplete: done,
-                    },
-                    '+=0'
+                    }
                 );
             });
         },
