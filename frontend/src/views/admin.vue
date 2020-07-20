@@ -1,28 +1,54 @@
 <template>
     <div class="adminBbs">
-        <table v-if="postItems">
-            <thead>
-                <tr>
-                    <th>index</th>
-                    <th>id</th>
-                    <th>text</th>
-                    <th>delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(item, index) in postItems" :key="index">
-                    <td>{{ index }}</td>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.contents }}</td>
-                    <td><button type="button" @click="removePost(item._id)">delete</button></td>
-                </tr>
-            </tbody>
-        </table>
-        <LoadingSpinner v-else />
+        <form @submit.prevent="submitForm" class="form">
+            <div class="inner">
+                <i class="icon-mail" @click="open()"></i>
+                <label class="id">
+                    <input
+                        type="text"
+                        ref="userId"
+                        v-model="title"
+                        placeholder="트위터ID"
+                        maxlength="10"
+                    />
+                </label>
+                <label class="message">
+                    <input
+                        ref="msg"
+                        type="text"
+                        v-model="contents"
+                        placeholder="메세지를 입력해 주세요"
+                        maxlength="30"
+                    />
+                </label>
+                <button type="submit"><span>SEND</span></button>
+            </div>
+        </form>
+        <div class="adminTbl">
+            <table v-if="postItems">
+                <thead>
+                    <tr>
+                        <th>index</th>
+                        <th>id</th>
+                        <th>text</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in postItems" :key="index">
+                        <td>{{ index }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.contents }}</td>
+                        <td><button type="button" @click="removePost(item._id)">delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <LoadingSpinner v-else />
+        </div>
     </div>
 </template>
 <script>
-import { deletePostById, fetchPosts } from '@/api/posts';
+import { createNewPost, deletePostById, fetchPosts } from '@/api/posts';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import bus from '@/utils/bus';
 
@@ -33,6 +59,9 @@ export default {
             postItems: null,
             username: 'test@test.com',
             password: 'testtest',
+            title: '',
+            contents: '',
+            cmtKey: this.$id('ddd'),
         };
     },
     watch: {},
@@ -67,6 +96,30 @@ export default {
                 console.log(error);
             }
         },
+        async submitForm() {
+            try {
+                if ((this.title === '' && this.contents === '') || this.title === '') {
+                    alert('트위터ID를 입력해주세요');
+                    this.$refs.userId.focus();
+                } else if (this.contents === '') {
+                    alert('메세지를 입력해주세요');
+                    this.$refs.msg.focus();
+                } else {
+                    const response = await createNewPost({
+                        title: this.title,
+                        contents: this.contents,
+                        cmtKey: this.cmtKey,
+                    });
+                    this.fetchData();
+                    this.mee = this.spliteTxt(this.contents);
+                    this.title = '';
+                    this.contents = '';
+                }
+            } catch (error) {
+                console.log(error.data.error.errmsg);
+                this.resultMessage = error.data.message;
+            }
+        },
         async login() {
             if (!this.username || !this.password) {
                 alert('Fill in the account information');
@@ -93,10 +146,19 @@ export default {
 </script>
 <style scoped>
 .adminBbs {
+    display: flex;
+    background: #fff;
+}
+.form {
+    padding: 30px;
+}
+.adminTbl {
+    flex: 1 1 auto;
+    padding: 30px;
 }
 table {
+    width: 100%;
     background: #fff;
-    margin: 40px auto;
     border-collapse: collapse;
 }
 td,

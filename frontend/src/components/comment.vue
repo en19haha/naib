@@ -75,7 +75,6 @@ export default {
         return {
             firstInit: false,
             timer: null,
-
             showModal: false,
             username: 'test@test.com',
             password: 'testtest',
@@ -91,7 +90,7 @@ export default {
     },
     watch: {
         randomList() {
-            console.log(this.randomList);
+            //console.log(this.randomList);
         },
     },
     components: {
@@ -100,18 +99,12 @@ export default {
     created() {},
     computed: {
         itemLength() {
-            return Math.min(14, this.postItems.length - 1);
+            return Math.min(15, this.postItems.length - 1);
         },
-        // liClass() {
-        //     return {
-        //         test: this.fontSize(),
-        //         'comment-list-item': 'comment-list-item',
-        //     };
-        // },
     },
     mounted() {
-        this.getCookie();
         this.login();
+        this.getCookie();
     },
     methods: {
         // modal
@@ -328,13 +321,6 @@ export default {
 };
 </script>
 <style scoped>
-.comment2-list {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #fff;
-    font-size: 400px;
-}
 .fontSize14 {
     font-size: 14px !important;
 }
