@@ -73,9 +73,10 @@ export default {
     name: 'comment',
     data() {
         return {
+            firstInit: false,
             timer: null,
             itemLength: 14,
-            showModal: true,
+            showModal: false,
             username: 'test@test.com',
             password: 'testtest',
             logMessage: '',
@@ -96,11 +97,7 @@ export default {
     components: {
         modal02,
     },
-    created() {
-        if (!this.showModal) {
-            this.fetchData();
-        }
-    },
+    created() {},
     computed: {
         // liClass() {
         //     return {
@@ -110,9 +107,38 @@ export default {
         // },
     },
     mounted() {
+        this.getCookie();
         this.login();
     },
     methods: {
+        // modal
+        setCookie(name, value, expiredays) {
+            const todayDate = new Date();
+            todayDate.setDate(todayDate.getDate() + expiredays);
+            document.cookie =
+                name + '=' + escape(value) + '; path=/; expires=' + todayDate.toGMTString() + ';';
+        },
+        getCookie() {
+            const cookieData = document.cookie;
+            if (cookieData.indexOf('todayCookie=done') < 0) {
+                this.showModal = true;
+            } else {
+                this.showModal = false;
+                this.fetchData();
+            }
+        },
+        modalClose() {
+            this.showModal = false;
+            this.setCookie('todayCookie', 'done', 1);
+            if (!this.randomList.length) {
+                this.fetchData();
+            }
+        },
+        open() {
+            this.showModal = true;
+        },
+
+        // list animation
         spliteTxt(string) {
             const arr = string.split('');
             arr.forEach((t, i) => {
@@ -121,26 +147,39 @@ export default {
             return arr.join('');
         },
         listEnter: function(el, done) {
-            const text = el.querySelectorAll('span');
             function random(min, max) {
                 return Math.random() * (max - min) + min;
             }
-            text.forEach((ele, i) => {
-                gsap.from(
-                    ele,
-                    {
-                        opacity: 0,
-                        x: random(-100, 100),
-                        y: random(-50, 50),
-                        z: random(-200, 0),
-                        scale: 0.2,
-                        delay: i * 0.02,
-                        duration: 1,
-                        onComplete: done,
-                    },
-                    '+=0'
-                );
+            gsap.set(el, {
+                opacity: 0,
             });
+
+            setTimeout(
+                () => {
+                    gsap.set(el, {
+                        opacity: 1,
+                    });
+                    const text = el.querySelectorAll('span');
+                    text.forEach((ele, i) => {
+                        gsap.from(
+                            ele,
+                            {
+                                opacity: 0,
+                                x: random(-100, 100),
+                                y: random(-50, 50),
+                                z: random(-200, 0),
+                                scale: 0.2,
+                                delay: i * 0.02,
+                                duration: 1,
+                                onComplete: done,
+                            },
+                            '+=0'
+                        );
+                    });
+                    this.firstInit = true;
+                },
+                this.firstInit ? 0 : random(0, 3000)
+            );
         },
         listLeave: function(el, done) {
             const text = el.querySelectorAll('span');
@@ -172,6 +211,7 @@ export default {
             });
         },
 
+        // list setting
         randomDelete() {
             const deleteLength = Math.floor(Math.random() * 3 + 2);
             for (let i = deleteLength - 1; i >= 0; i--) {
@@ -188,7 +228,6 @@ export default {
                     }
                 }
             }
-            console.log(this.randomList);
         },
         ticker() {
             this.timer = setTimeout(() => {
@@ -199,16 +238,9 @@ export default {
             }, 5000);
         },
         commentItemClass(index) {
-            console.log(123);
             const fadeTime = 'test';
             const itemIndex = `item${index + 1}`;
             return `${itemIndex} ${fadeTime} comment-list-item`;
-        },
-        modalClose() {
-            this.showModal = false;
-            if (!this.randomList.length) {
-                this.fetchData();
-            }
         },
         getListNum() {
             while (this.randomList.length < this.itemLength) {
@@ -223,9 +255,8 @@ export default {
             clearTimeout(this.timer);
             this.ticker();
         },
-        open() {
-            this.showModal = true;
-        },
+
+        // get data
         async fetchData() {
             try {
                 const {
@@ -256,15 +287,13 @@ export default {
                         cmtKey: this.cmtKey,
                     });
                     this.fetchData();
-                    this.mee = null;
-                    console.log(this.mee);
                     this.mee = this.spliteTxt(this.contents);
 
                     this.title = '';
                     this.contents = '';
-                    setTimeout(() => {
+                    /*setTimeout(() => {
                         this.mee = null;
-                    }, 10000);
+                    }, 10000);*/
                 }
             } catch (error) {
                 console.log(error.data.error.errmsg);

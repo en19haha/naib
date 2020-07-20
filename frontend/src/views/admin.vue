@@ -1,14 +1,29 @@
 <template>
-    <ul>
-        <li v-for="(item, index) in postItems" :key="index">
-            {{ index }}
-            {{ item.contents }}
-            <button type="button" @click="removePost(item._id)">delete</button>
-        </li>
-    </ul>
+    <div class="adminBbs">
+        <table v-if="postItems">
+            <thead>
+                <tr>
+                    <th>index</th>
+                    <th>id</th>
+                    <th>text</th>
+                    <th>delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in postItems" :key="index">
+                    <td>{{ index }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.contents }}</td>
+                    <td><button type="button" @click="removePost(item._id)">delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <LoadingSpinner v-else />
+    </div>
 </template>
 <script>
 import { deletePostById, fetchPosts } from '@/api/posts';
+import LoadingSpinner from '@/components/common/LoadingSpinner';
 import bus from '@/utils/bus';
 
 export default {
@@ -16,13 +31,12 @@ export default {
     data() {
         return {
             postItems: null,
-
             username: 'test@test.com',
             password: 'testtest',
         };
     },
     watch: {},
-    components: {},
+    components: { LoadingSpinner },
     created() {
         this.fetchData();
     },
@@ -78,6 +92,19 @@ export default {
 };
 </script>
 <style scoped>
+.adminBbs {
+}
+table {
+    background: #fff;
+    margin: 40px auto;
+    border-collapse: collapse;
+}
+td,
+th {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #eee;
+}
 .comment2-list {
     position: absolute;
     top: 0;

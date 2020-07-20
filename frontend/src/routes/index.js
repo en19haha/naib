@@ -5,7 +5,7 @@ import SignupView from '../views/SignupView';
 import MainView from '../views/MainView';
 import PostAddView from '../views/PostAddView';
 import PostDetailView from '../views/PostDetailView';
-import test from '../views/admin';
+import admin from '../views/admin';
 import store from '../store';
 import { getUserFromCookie } from '../utils/cookies.js';
 import eventMain from '@/views/eventMain';
@@ -14,6 +14,8 @@ import Comment from '@/components/comment';
 import CollaborationMain from '@/views/collaborationMain';
 import CollaborationArt from '@/components/collaborationArt';
 import CollaborationWrite from '@/components/collaborationWrite';
+import { gsap, ScrollToPlugin } from 'gsap/all';
+gsap.registerPlugin(ScrollToPlugin);
 
 Vue.use(Router);
 
@@ -34,9 +36,9 @@ export default new Router({
             // },
         },
         {
-            path: '/test',
-            name: 'test',
-            component: test,
+            path: '/admin',
+            name: 'admin',
+            component: admin,
             // beforeEnter(to, from, next) {
             // 	store.getters['isLoggedIn'] ? next('/main') : next();
             // },
