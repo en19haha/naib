@@ -20,7 +20,7 @@
                   >
                     <div class="inner-img">
                       <span class="thum"> <img :src="slide.img" style="max-height:100%;"></span>
-                      <p><em>{{slide.title}}</em></p>
+<!--                      <p><em>{{slide.title}}</em></p>-->
                     </div>
                   </div>
                 </div>

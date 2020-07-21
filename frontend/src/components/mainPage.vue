@@ -9,7 +9,9 @@
                     <li class="decotter">
                         <router-link to="/icondeco"><span>decotter</span></router-link>
                     </li>
-                    <li class="coming"><span>message</span></li>
+	                <li class="message">
+		                <router-link to="/message"><span>message</span></router-link>
+	                </li>
                     <li class="coming"><span>collaboration</span></li>
                 </ul>
                 <hr class="green-hr" />
@@ -18,7 +20,7 @@
 
 	                7월 23일, 나이브 수베다르의 생일을<br />
 	                축하하기 위한 페이지입니다.<br />
-	                생일 축하해, 나이브!<br />
+	                생일 축하해, 나이브!<br /><br />
 
 	                //<br /><br />
 

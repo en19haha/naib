@@ -41,7 +41,7 @@
                                 ref="userId"
                                 v-model="title"
                                 placeholder="트위터ID"
-                                maxlength="10"
+                                maxlength="20"
                             />
                         </label>
                         <label class="message">

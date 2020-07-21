@@ -91,6 +91,11 @@
 .nav-list li.message a {
     background-image: url('../images/icon02.png');
 }
+.nav-list li.message a :hover,
+.nav-list li.message a :focus {
+    background-image: url('../images/icon02_on.png');
+    transition: all ease-in-out 1ms;
+}
 .nav-list li.collaboration a {
     background-image: url('../images/icon03.png');
 }
@@ -405,7 +410,7 @@
     width: 300px;
     height: 100px;
     padding: 20px;
-    font-size: 22px;
+    font-size: 20px;
     color: #fdffbe;
     margin-left: -150px;
     text-align: center;
@@ -420,6 +425,7 @@
 .comment-list {
     z-index: 2;
     position: absolute;
+
     bottom: 110px;
     left: 50%;
     width: 100%;
@@ -506,7 +512,7 @@
     font-size: 20px;
 }
 .comment-list-item.item6 {
-    bottom: 580px;
+    bottom: 520px;
     left: 150px;
     font-size: 20px;
 }
@@ -516,7 +522,7 @@
     font-size: 14px;
 }
 .comment-list-item.item8 {
-    bottom: 710px;
+    bottom: 680px;
     left: 210px;
 }
 .comment-list-item.item15 {
