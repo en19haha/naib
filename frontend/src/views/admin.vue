@@ -28,18 +28,22 @@
             <table v-if="postItems">
                 <thead>
                     <tr>
-                        <th>index</th>
-                        <th>id</th>
-                        <th>text</th>
-                        <th>delete</th>
+                        <th>INDEX</th>
+                        <th>ID</th>
+                        <th>TEXT</th>
+                        <th>DATE</th>
+                        <th>DELETE</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in postItems" :key="index">
-                        <td>{{ index }}</td>
-                        <td>{{ item.title }}</td>
+                        <td style="text-align:center">{{ index + 1 }}</td>
+                        <td style="text-align:center">{{ item.title }}</td>
                         <td>{{ item.contents }}</td>
-                        <td><button type="button" @click="removePost(item._id)">delete</button></td>
+                        <td style="text-align:center">{{ getDate(item.createdAt) }}</td>
+                        <td style="text-align:center">
+                            <button type="button" @click="removePost(item._id)">DELETE</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -74,6 +78,25 @@ export default {
         this.login();
     },
     methods: {
+        getDate(dateString) {
+            const setDate = new Date(dateString);
+            const mm = setDate.getMonth() + 1;
+            const dd = setDate.getDate();
+            const date = [
+                setDate.getFullYear(),
+                (mm > 9 ? '' : '0') + mm,
+                (dd > 9 ? '' : '0') + dd,
+            ].join('.');
+            var hours = setDate.getHours();
+            var minutes = setDate.getMinutes();
+            var ampm = hours >= 12 ? '오후' : '오전';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            const time = [hours, minutes].join(':');
+
+            return `${date} / ${ampm} ${time}`;
+        },
         async removePost(id) {
             try {
                 if (confirm('Delete it?')) {
@@ -90,7 +113,6 @@ export default {
                     data: { posts: postItems },
                 } = await fetchPosts();
                 this.postItems = postItems;
-                console.log(postItems);
                 return;
             } catch (error) {
                 console.log(error);
@@ -155,6 +177,10 @@ export default {
     width: 300px;
     padding: 30px;
 }
+.form input,
+.form button {
+    font-family: 'Sans-serif' !important;
+}
 .adminTbl {
     flex: 1 1 auto;
     padding: 30px;
@@ -166,6 +192,7 @@ table {
 }
 td,
 th {
+    font-family: 'Sans-serif' !important;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #eee;
