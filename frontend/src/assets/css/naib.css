@@ -91,6 +91,11 @@
 .nav-list li.message a {
     background-image: url('../images/icon02.png');
 }
+.nav-list li.message a :hover,
+.nav-list li.message a :focus {
+    background-image: url('../images/icon02_on.png');
+    transition: all ease-in-out 1ms;
+}
 .nav-list li.collaboration a {
     background-image: url('../images/icon03.png');
 }
